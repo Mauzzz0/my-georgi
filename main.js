@@ -1,6 +1,12 @@
-const names = [ {age: 10} ];
+const son = { age: 10, name: 'Alex' };
+const dad = { age: 30, name: 'Maks', child: son };
 
-names[0].age = 50;
-names[0].photo = null;
+for (const key in dad) {
+  console.log(key, dad[key]);
+}
 
-console.log(names);
+/* Вывод
+age
+name
+child
+*/
