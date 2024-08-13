@@ -1,40 +1,22 @@
-type Person = {
-  name: string;
-  child: Person | null;
+type Person = { name: string; age?: number | null };
+
+const users: Person[] = [{ name: 'z' }, { name: 'sd', age: 10 }, { name: 'Stas-1' }];
+
+const findStas = (obj: Person[]) => {
+  let found;
+
+  for (let i = 0; i < obj.length; i++) {
+    if (obj[i].name === 'Stas') {
+      found = obj[i];
+    }
+  }
+
+  return found;
 };
 
-const person: Person = {
-  name: '1',
-  child: {
-    name: '2',
-    child: {
-      name: '3',
-      child: {
-        name: '4',
-        child: null,
-      },
-    },
-  },
-};
+const stas = findStas(users);
 
-const person2: Person = {
-  name: '1',
+console.log(stas ? (stas.age ?? 'Значения нет') : 'Объект не найден');
 
-  child: {
-    name: '2',
-
-    child: {
-      name: '3',
-
-      child: {
-        name: '4',
-
-        child: {
-          name: '5',
-
-          child: null,
-        },
-      },
-    },
-  },
-};
+const age = 10;
+console.log(age > 19 ? 'Вам больше 19' : 'Вам меньше 19');
