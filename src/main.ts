@@ -4,4 +4,4 @@ console.log('Раздел с музыкой готов на 30%');
 console.log('Раздел с музыкой готов на 60%');
 console.log('Раздел с музыкой готов на 100%');
 
-console.log('Это пример контента для GitHub Pull Request');
+console.log('Это НЕ пример контента для GitHub Pull Request');
