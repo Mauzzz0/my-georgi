@@ -1,3 +1,3 @@
-console.log('Начали изучать продвинутые команды гита!');
+import { films } from './films';
 
-console.log('Я начал изучать гит!!!');
+films();
