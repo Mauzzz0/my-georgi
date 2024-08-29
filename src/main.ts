@@ -1,15 +1,44 @@
-const criteria1 = true;
-const gogaCriteria = true;
-const ruslanCriteria = true;
+abstract class Person {
+  public name: string;
+  public age: number;
 
-if (criteria1) {
-  console.log('Условие номер 1 успешно выполнено!');
+  abstract getName(): string;
+
+  getAge() {
+    return `Мой возраст: ${this.age}`;
+  }
 }
 
-if (gogaCriteria) {
-  console.log('Условие Георгия сработало!');
+class Women extends Person {
+  public favoriteColor: string;
+
+  getName(): string {
+    return `Моё женское имя: ${this.name}`;
+  }
+
+  getAge(): string {
+    const original = super.getAge();
+    return `Оригинальный getAge вернул: [${original}]. Но мы обернём его в свой getAge() :)`;
+  }
 }
 
-if (ruslanCriteria) {
-  console.log('Условие Руслана успешно выполнено!');
+const you = new Women();
+you.age = 2;
+you.name = 'youname';
+console.log(you.getName());
+console.log(you.getAge());
+
+class Man extends Person {
+  public favoriteCar: string;
+
+  getName(): string {
+    return `Моё мужское имя: ${this.name}`;
+  }
 }
+
+const me = new Man();
+me.age = 1;
+me.name = 'mename';
+
+// console.log(me.getName());
+// console.log(me.getAge());
