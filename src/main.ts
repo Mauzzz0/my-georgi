@@ -1,16 +1,15 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
+
+import { logRoutes } from './logRoutes';
+import { taskRouter } from './routers';
 
 const server = express();
 
 server.use(express.json());
 
-server.get('/task/:id', (req: Request, res: Response) => {
-  res.json(req.params);
-});
+server.use('/task', taskRouter);
 
-server.post('/task', (req: Request, res: Response) => {
-  res.json({ a: false });
-});
+logRoutes(server);
 
 const port = 2000;
 
