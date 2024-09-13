@@ -1,13 +1,18 @@
 import express from 'express';
 
 import { logRoutes } from './logRoutes';
+import { errorHandler, logMiddleware } from './middlewares';
 import { taskRouter } from './routers';
 
 const server = express();
 
 server.use(express.json());
 
+server.use(logMiddleware);
+
 server.use('/task', taskRouter);
+
+server.use(errorHandler);
 
 logRoutes(server);
 
